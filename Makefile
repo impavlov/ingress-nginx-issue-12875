@@ -8,6 +8,7 @@ build:
 setup: build
 	dd if=/dev/urandom of=10M bs=1M count=1
 	kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/deploy-ingress-nginx.yaml
+	kubectl -n ingress-nginx wait --for=condition=ready pod -l app.kubernetes.io/component=controller
 	kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 8080:80
 
 curl:

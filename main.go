@@ -34,11 +34,12 @@ func fileUploadHandler(w http.ResponseWriter, r *http.Request) {
 	// }
 
 	// reply with Auth error without reading the body
-	http.Error(w, string(bytes.Repeat([]byte("a"), 3946)), http.StatusUnauthorized)
+	//http.Error(w, string(bytes.Repeat([]byte("a"), 3896)), http.StatusUnauthorized) // work
+	http.Error(w, string(bytes.Repeat([]byte("a"), 3897)), http.StatusUnauthorized) // doesn't work
 	return
 
-	//n, err := w.Write(bytes.Repeat([]byte("a"), 3945)) // work
-	//n, err := w.Write(bytes.Repeat([]byte("a"), 3946)) // doesn't work
+	//n, err := w.Write(bytes.Repeat([]byte("a"), 3896)) // work
+	//n, err := w.Write(bytes.Repeat([]byte("a"), 3897)) // doesn't work
 	//n, err := w.Write(bytes.Repeat([]byte("a"), 1000000)) // doesn't work
 
 	//if err != nil {
